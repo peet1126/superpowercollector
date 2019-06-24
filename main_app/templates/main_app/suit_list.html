@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Super Suit List</h1>
+
+{% for suit in suits_list %}
+  <a href="{% url 'suits_details' suit.id %}">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ suit.name }}</span>
+            <p>Color: {{ suit.color }}</p>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Super Powers List</h1>
+
+{% for power in powers %}
+    <div class="card">
+        <a href="{% url 'details' power.id %}">
+            <div class="card-content">
+                <span class="card-title">{{ power.name }}</span>
+                <p>Level: {{ power.level }}</p>
+                <p>Description: {{ power.description }}</p>
+                {% if power.weakness %}
+                    <p>Weakness: {{ power.weakness }}</p>
+                {% else %}
+                    <p>Weakness: Not Known</p>
+                {% endif %}
+            </div>
+        </a>    
+    </div>
+{% endfor %}
+
+{% endblock %}
